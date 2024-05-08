@@ -1,2 +1,3 @@
 # leetcode-solutions
-Repository of Solved Leetcode Problems
+
+**Description** : Repository of Solved Leetcode Problems (Java)
