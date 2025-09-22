@@ -1,43 +1,33 @@
 class Solution {
-    public int[] palindromeLength(int l, int r, String s){
-        int[] ret = new int[3];
-        while(l>=0 && r<s.length()) {
-            if(s.charAt(l)==s.charAt(r)) {
-                l--;
-                r++;
-            }
-            else break;
-        }
-        ret[0] = r-l-1;
-        ret[1] = l+1;
-        ret[2] = r-1;
-        return ret;
-    }
     public String longestPalindrome(String s) {
-        int max_len = 0;
-        int[] ret = new int[3];
-        int start = 0;
-        int end = 0;
-        //for odd length palindrome
-        for(int i=0; i<s.length()-1; i++) {
-            ret = palindromeLength(i, i, s);
-            int len = ret[0];
-            if(len>max_len) {
-                max_len = len;
-                start = ret[1];
-                end = ret[2];
-            }
+        if(s.length() <= 1)
+            return s;
+        String result = "";
+        String palindrome = "";
+        int left_index, right_index;
+        for(int i=1; i<s.length(); i++) {
+            //for odd length
+            left_index = i;
+            right_index = i;
+            palindrome = returnPalindrome(s, left_index, right_index);
+            if(palindrome.length() > result.length())
+                result = palindrome;
+            //for even length
+            left_index = i-1;
+            right_index = i;
+            palindrome = returnPalindrome(s, left_index, right_index);
+            if(palindrome.length() > result.length())
+                result = palindrome;          
         }
-        //for even length palindrome
-        for(int i=0; i<s.length()-1; i++) {
-            ret = palindromeLength(i, i+1, s);
-            int len = ret[0];
-            if(len>max_len) {
-                max_len = len;
-                start = ret[1];
-                end = ret[2];
-            }
+        return result;
+    }
+    public String returnPalindrome(String s, int left_index, int right_index) {
+        while(s.charAt(left_index) == s.charAt(right_index)) {
+            left_index--;
+            right_index++;
+            if(left_index<0 || right_index==s.length())
+                break;
         }
-        return s.substring(start, end+1);
+        return s.substring(left_index+1, right_index);
     }
 }
