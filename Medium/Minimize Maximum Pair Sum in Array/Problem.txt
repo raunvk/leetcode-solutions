@@ -1,6 +1,6 @@
----------------------------------------------------------------------------------------------
-Minimize Maximum Pair Sum in Array - leetcode.com/problems/minimize-maximum-pair-sum-in-array
----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+Minimize Maximum Pair Sum in Array - leetcode.com/problems/minimize-maximum-pair-sum-in-array/
+----------------------------------------------------------------------------------------------
 
 The pair sum of a pair (a,b) is equal to a + b. The maximum pair sum is the largest pair sum in a list of pairs.
 
